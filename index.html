@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Test</title>
+  <meta name="description" content="Test">
+  <meta name="author" content="Me">
+
+  <link rel="stylesheet" href="_css/default.css"><!-- defaults -->
+  <script src="_js/default.js"></script><!-- defaults -->
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+  <script src="_js/jquery-3.1.1.min.js"></script><!-- Core -->
+
+  <!-- own -->
+  <script src="_js/player.js"></script>
+  <script src="_js/sliders.js"></script>
+  <script src="_js/items.js"></script>
+  <script src="_js/misc.js"></script>
+
+</head>
+<body>
+
+  <div class="rTable">
+    <div class="rTableRow">
+      <div class="rTableCell">
+        <!-- LEFT CELL -->
+
+
+
+  <div class="rTable">
+    <div class="rTableRow">
+      <div class="rTableCell">
+        <img id="imgProfile" src="_images/default.jpg" alt="Profile pic">
+      </div><!-- rTableCell -->
+    </div><!-- rTableRow -->
+    <div class="rTableRow">
+      <div class="rTableCell">
+        <label>Variable 1</label>
+      </div><!-- rTableCell -->
+    </div><!-- rTableRow -->
+  </div><!-- rTable -->
+
+
+
+
+
+
+
+      </div><!--LEFT CELL - rTableCell -->
+      <div class="rTableCell">
+        <!-- CENTER CELL -->
+
+        <!-- START Range Sliders -->
+        <div class="rTable">
+          <div class="rTableHeading">
+            <div class="rTableCell">
+              <label>Variable 1</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label>Variable 2</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label>Variable 3</label>
+            </div><!-- rTableCell -->
+          </div><!-- rTableHeading -->
+          <div class="rTableRow">
+            <div class="rTableCell">
+              <label>Variable 1</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <input id="rangeSlider1" name="rangeSlider" type="range" onInput="rangeSliderValuesChanged(this);">
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderLabel1" name="rangeSliderLabel"></label>
+            </div><!-- rTableCell -->
+          </div><!-- rTableRow -->
+          <div class="rTableRow">
+            <div class="rTableCell">
+              <label>Variable 2</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <input id="rangeSlider2" name="rangeSlider" type="range" onInput="rangeSliderValuesChanged(this);">
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderLabel2" name="rangeSliderLabel"></label>
+            </div><!-- rTableCell -->
+          </div><!-- rTableRow -->
+          <div class="rTableRow">
+            <div class="rTableCell">
+              <label>Variable 3</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <input id="rangeSlider3" name="rangeSlider" type="range" onInput="rangeSliderValuesChanged(this);">
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderLabel3" name="rangeSliderLabel"></label>
+            </div><!-- rTableCell -->
+          </div><!-- rTableRow -->
+        </div><!-- rTable -->
+        <!-- END Range Sliders -->
+
+      </div><!-- CENTER CELL rTableCell -->
+      <div class="rTableCell">
+        <!-- RIGHT CELL -->
+
+        <div id="elemItemsContainer"></div><!-- Items table -->
+
+        <br>
+
+        <div id="elemItemDetailsContainer"></div><!-- Item details table -->
+
+      </div><!-- RIGHT CELL rTableCell -->
+    </div><!-- rTableRow -->
+  </div><!-- rTable -->
+
+
+
+
+  <script>
+
+    //INIT
+    rangeSliderValuesInit(); //slider ranges init
+    populateElement("elemItemsContainer", createItemsTable(JSONtoArray(arrItems))); //create and display items table
+
+  </script>
+
+</body>
+</html>

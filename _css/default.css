@@ -1,0 +1,62 @@
+
+.alignRight {
+  width: auto; /* so align works */
+  text-align: right;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#imgProfile {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+/* START Tables */
+
+.rTable {
+  display: table;
+  border: 1px #000 solid;
+
+}
+
+.rTableRow {
+  display: table-row;
+}
+
+.rTableHeading {
+  display: table-header-group;
+  background-color: #000;
+  color: #FFF;
+  text-transform: capitalize;
+}
+
+.rTableBody {
+  display: table-row-group;
+}
+
+.rTableFoot {
+  display: table-footer-group;
+}
+
+.rTableCell, .rTableHead  {
+  display: table-cell;
+  text-align: center;
+  vertical-align: top;
+}
+
+
+.rTableHead  {
+  background-color: #000;
+  color: #FFF;
+  font-size: 120%;
+}
+
+.rTableCell, .rTableHead {
+  padding: 10px;
+}
+
+/* END Tables */

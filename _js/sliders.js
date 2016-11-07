@@ -1,28 +1,92 @@
 
-/************* START INIT *************/
+var arrSliders = new Array(); //Global Array to store all Products
+    arrSliders = [{
+                   "id": 1
+                   ,"name": "Slider 1"
+                   ,"description": "This is Slider 1 info here"
+                   ,"min": 0
+                   ,"max": 100
+                   ,"step": 1
+                   ,"value": 10
+                   ,"happiness": 87
+                   ,"health": 86
+                  },{
+                   "id": 2
+                   ,"name": "Slider 2"
+                   ,"description": "This is Slider 2 info here"
+                   ,"min": 0
+                   ,"max": 100
+                   ,"step": 1
+                   ,"value": 40
+                   ,"happiness": 77
+                   ,"health": 76
+                  },{
+                   "id": 3
+                   ,"name": "Slider 3"
+                   ,"description": "This is Slider 3 info here"
+                   ,"min": 0
+                   ,"max": 100
+                   ,"step": 1
+                   ,"value": 50
+                   ,"happiness": 97
+                   ,"health": 96
+                 }];
+
+
+/************* START slider init *************/
 var objSliders = new Object();
+//var objSlidersInstance = new Object();
     objSliders = { //assign functions to object
-       Init: function () { //set Object Property values
-         this.min = 0;
-         this.max = 100;
-         this.step = 1;
-         this.value = [10, 40, 50];
+       setValues: function (intID, strName, strDescription, intMin, intMax, intStep, intValue, intHappiness, intHealth) { //set Object Property values
+         this.id = intID;
+         this.name = strName;
+         this.description = strDescription;
+         this.min = intMin;
+         this.max = intMax;
+         this.step = intStep;
+         this.value = intValue;
+         this.happiness = intHappiness;
+         this.health = intHealth;
        }
     };
-var objSlidersInstance = Object.create(objSliders); //create Object instance
-    objSlidersInstance.Init(); //call object init
-/************* END INIT *************/
+/************* END slider init *************/
 
+function slidersJSONtoArray(arrArray) {
 
-function rangeSliderValuesInit() {
+  //transform JSON to array
+  var arrTemp = [];
+  for (var prop in arrArray) {
+        var objSlidersInstance = Object.create(objSliders); //Create Object
+        objSlidersInstance.setValues(parseInt(arrArray[prop].id)
+                                    ,arrArray[prop].name
+                                    ,arrArray[prop].description
+                                    ,parseInt(arrArray[prop].min)
+                                    ,parseInt(arrArray[prop].max)
+                                    ,parseInt(arrArray[prop].step)
+                                    ,parseInt(arrArray[prop].value)
+                                    ,parseInt(arrArray[prop].happiness)
+                                    ,parseInt(arrArray[prop].health)
+                                  ); //Init
+        arrTemp.push(objSlidersInstance); //Write Object to Array
+  } //for
+
+  return arrTemp;
+
+} //function
+
+function setSlidersValues(arrArray) {
 
   var elems = document.getElementsByName("rangeSlider"); //get array of elements
-  for (var i=0; i<elems.length; i++) { //loop through elements and assign defaults
-    elems[i].min = objSlidersInstance.min;
-    elems[i].max = objSlidersInstance.max;
-    elems[i].step = objSlidersInstance.step;
-    elems[i].value = objSlidersInstance.value[i];
-  } //for
+  arrArray.forEach(function(obj, index) { //for every object in the arrArray
+
+    //all valid properties of a range slider
+    elems[index].min = obj["min"];
+    elems[index].max = obj["max"];
+    elems[index].step = obj["step"];
+    elems[index].value = obj["value"];
+
+  }); //forEach
+
   rangeSliderValuesDisplayUpdate(); //update displayed values
 
 }

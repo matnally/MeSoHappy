@@ -17,10 +17,16 @@
 
 /* START Tables */
 
+#rTableMain {
+  width: 100%;
+}
+#rTableMain .rTableCell {
+  width: 33.333%;
+}
+
 .rTable {
   display: table;
   border: 1px #000 solid;
-
 }
 
 .rTableRow {
@@ -46,8 +52,8 @@
   display: table-cell;
   text-align: center;
   vertical-align: top;
+  border: 1px #CCC solid !important;
 }
-
 
 .rTableHead  {
   background-color: #000;

@@ -24,7 +24,7 @@ var arrItems = new Array(); //Global Array to store all Products
                    ,"quantity": 16
                    ,"price": 2.70
                    ,"happiness": 111
-                 }];
+               }];
 
 
 /************* START INIT *************/
@@ -43,7 +43,7 @@ var objItems = new Object();
 /************* END INIT *************/
 
 
-function JSONtoArray(arrArray) {
+function itemsJSONtoArray(arrArray) {
 
   //transform JSON to array
   var arrTemp = [];
@@ -59,6 +59,7 @@ function JSONtoArray(arrArray) {
                                   ); //Init
     arrTemp.push(objItemsInstance); //Write Object to Array
   } //for
+
   return arrTemp;
 
 } //function
@@ -68,8 +69,8 @@ function JSONtoArray(arrArray) {
 function createItemsTable(arrArray) {
 
   var strTemp = "<div class='rTable'>";
-      strTemp += createTableHeadings(arrArray)
-      strTemp += createTableContent(arrArray)
+      strTemp += createTableHeadings(arrArray);
+      strTemp += createTableContent(arrArray);
       strTemp += "</div>"; //rTable
   return strTemp;
 
@@ -78,9 +79,9 @@ function createTableHeadings(arrArray) {
 
   var strTemp = "<div class='rTableHeading'>";
   Object.keys(arrArray[0]).forEach(function (key) { //Uses the first iteration, 0, of the array to get the headings list
-    strTemp += "<div class='rTableCell"+checkIfHidden(key)+"'>"+key+"</div>";
+    strTemp += "<div class='rTableCell"+checkIfHidden(key)+"'><label>"+key+"</label></div>";
   });
-  strTemp += "</div>";
+  strTemp += "</div>"; //rTableHeading
   return strTemp;
 
 } //function
@@ -90,7 +91,7 @@ function createTableContent(arrArray) {
   for (var i=0; i<arrArray.length; i++) { //For loop to go through array
     strTemp += "<div class='rTableRow' onClick='singleClick("+i+")' onDblClick='doubleClick("+i+")'>";
     Object.keys(arrArray[i]).forEach(function (key) {
-      strTemp += "<div class='rTableCell"+checkIfHidden(key)+"'>"+arrArray[i][key]+"</div>";
+      strTemp += "<div class='rTableCell"+checkIfHidden(key)+"'><label>"+arrArray[i][key]+"</label></div>";
     });
     strTemp += "</div>"; //rTableRow
   }// For

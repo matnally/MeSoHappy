@@ -22,6 +22,7 @@
   <script src="_js/player.js"></script>
   <script src="_js/sliders.js"></script>
   <script src="_js/items.js"></script>
+  <script src="_js/work.js"></script>
   <script src="_js/misc.js"></script>
   <script src="_js/start.js"></script>
 
@@ -40,16 +41,41 @@
             <div class="rTableCell">
               <img id="imgProfile" src="_images/default.jpg" alt="Profile pic">
             </div><!-- rTableCell -->
-            <div class="rTableCell">
-              <label>Variable 1</label>
-            </div><!-- rTableCell -->
           </div><!-- rTableRow -->
           <div class="rTableRow">
             <div class="rTableCell">
-              <label>Variable 2</label>
-            </div><!-- rTableCell -->
-            <div class="rTableCell">
-              <label>Variable 3</label>
+
+
+              <!-- START Profile Stats Table -->
+              <div class="rTable">
+                <div class="rTableRow">
+                  <div class="rTableCell">
+                    <label for="labHealth">Health</label>
+                  </div><!-- rTableCell -->
+                  <div class="rTableCell">
+                    <label id="labHealth"></label>
+                  </div><!-- rTableCell -->
+                </div><!-- rTableRow -->
+                <div class="rTableRow">
+                  <div class="rTableCell">
+                    <label for="labHappiness">Happiness</label>
+                  </div><!-- rTableCell -->
+                  <div class="rTableCell">
+                    <label id="labHappiness"></label>
+                  </div><!-- rTableCell -->
+                </div><!-- rTableRow -->
+                <div class="rTableRow">
+                  <div class="rTableCell">
+                    <label for="labMoney">Money</label>
+                  </div><!-- rTableCell -->
+                  <div class="rTableCell">
+                    <label id="labMoney"></label>
+                  </div><!-- rTableCell -->
+                </div><!-- rTableRow -->
+              </div><!-- rTable -->
+              <!-- END Profile Stats Table -->
+
+
             </div><!-- rTableCell -->
           </div><!-- rTableRow -->
         </div><!-- rTable -->
@@ -61,13 +87,16 @@
         <div class="rTable">
           <div class="rTableHeading">
             <div class="rTableCell">
-              <label>Variable 1</label>
+              <label>Name</label>
             </div><!-- rTableCell -->
             <div class="rTableCell">
-              <label>Variable 2</label>
+              <label>Value</label>
             </div><!-- rTableCell -->
             <div class="rTableCell">
-              <label>Variable 3</label>
+              <label>%</label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label>Boost</label>
             </div><!-- rTableCell -->
           </div><!-- rTableHeading -->
           <div class="rTableRow">
@@ -80,6 +109,9 @@
             <div class="rTableCell">
               <label id="rangeSliderLabel1" name="rangeSliderLabel"></label>
             </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderBoostLabel1" name="rangeSliderBoostLabel"></label>
+            </div><!-- rTableCell -->
           </div><!-- rTableRow -->
           <div class="rTableRow">
             <div class="rTableCell">
@@ -90,6 +122,9 @@
             </div><!-- rTableCell -->
             <div class="rTableCell">
               <label id="rangeSliderLabel2" name="rangeSliderLabel"></label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderBoostLabel2" name="rangeSliderBoostLabel"></label>
             </div><!-- rTableCell -->
           </div><!-- rTableRow -->
           <div class="rTableRow">
@@ -102,9 +137,40 @@
             <div class="rTableCell">
               <label id="rangeSliderLabel3" name="rangeSliderLabel"></label>
             </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <label id="rangeSliderBoostLabel3" name="rangeSliderBoostLabel"></label>
+            </div><!-- rTableCell -->
           </div><!-- rTableRow -->
         </div><!-- rTable -->
         <!-- END Range Sliders -->
+
+        <br>
+
+        <!-- START Work Table -->
+        <div class="rTable">
+          <div class="rTableRow">
+            <div class="rTableCell">
+              <label id="labDateCurrent"></label>
+            </div><!-- rTableCell -->
+            <div class="rTableCell">
+              <input id="workMonthCount" type="number" value="1" min="1" max="12">
+              <button type="button" onClick="workMonth(workMonthCount.value);">Add a month</button>
+            </div><!-- rTableCell -->
+          </div><!-- rTableRow -->
+        </div><!-- rTable -->
+        <!-- END Work Table -->
+
+        <br>
+
+        <!-- START Work Details Table -->
+        <div class="rTable">
+          <div class="rTableRow">
+            <div class="rTableCell">
+              <label id="labDateWorked"></label>
+            </div><!-- rTableCell -->
+          </div><!-- rTableRow -->
+        </div><!-- rTable -->
+        <!-- END Work Details Table -->
 
 
       </div><!--LEFT CELL - rTableCell -->
@@ -112,7 +178,8 @@
         <!-- CENTER CELL -->
 
 
-        <p>Something here</p>
+        <p>Inventory</p>
+        <div id="elemInventoryContainer"></div><!-- Items table -->
 
 
       </div><!-- CENTER CELL rTableCell -->

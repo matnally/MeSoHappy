@@ -14,14 +14,16 @@
 }
 
 
+input[type=number]{
+    width: 35px;
+}
+
 
 /* START Tables */
 
 #rTableMain {
-  width: 100%;
 }
 #rTableMain .rTableCell {
-  width: 33.333%;
 }
 
 .rTable {

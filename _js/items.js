@@ -8,6 +8,7 @@ var arrItems = new Array(); //Global Array to store all Products
                    ,"quantity": 27
                    ,"price": 2.50
                    ,"happiness": 1
+                   ,"health": 5
                   },{
                    "id": 2
                    ,"name": "Coffee"
@@ -16,6 +17,7 @@ var arrItems = new Array(); //Global Array to store all Products
                    ,"quantity": 73
                    ,"price": 3
                    ,"happiness": 11
+                   ,"health": 5
                   },{
                    "id": 3
                    ,"name": "Tea"
@@ -24,13 +26,14 @@ var arrItems = new Array(); //Global Array to store all Products
                    ,"quantity": 16
                    ,"price": 2.70
                    ,"happiness": 111
+                   ,"health": 5
                }];
 
 
 /************* START INIT *************/
 var objItems = new Object();
     objItems = { //Assign functions to object
-       setValues: function (intID, strName, strDescription, strType, intQuantity, intPrice, intHappiness) { //Set Object Property values
+       setValues: function (intID, strName, strDescription, strType, intQuantity, intPrice, intHappiness, intHealth) { //Set Object Property values
            this.id = intID;
            this.name = strName;
            this.description = strDescription;
@@ -38,6 +41,7 @@ var objItems = new Object();
            this.quantity = intQuantity;
            this.price = intPrice;
            this.happiness = intHappiness;
+           this.health = intHealth;
        }
     };
 /************* END INIT *************/
@@ -56,6 +60,7 @@ function itemsJSONtoArray(arrArray) {
                                     ,arrArray[prop].quantity
                                     ,arrArray[prop].price //Init
                                     ,arrArray[prop].happiness
+                                    ,arrArray[prop].health
                                   ); //Init
     arrTemp.push(objItemsInstance); //Write Object to Array
   } //for
@@ -125,23 +130,13 @@ function singleClick(intID) {
       strTemp += "</div><!-- rTableHeading -->";
 
       strTemp += "<div class='rTableRow'>";
-
         strTemp += "<div class='rTableCell'>";
         strTemp += "<p>"+arrItems[intID].description+"</p>";
-//        strTemp += "</div><!-- rTableCell -->";
-
-//        strTemp += "<div class='rTableCell'>";
         strTemp += "<p>"+arrItems[intID].quantity+"</p>";
-//        strTemp += "</div><!-- rTableCell -->";
-
-//        strTemp += "<div class='rTableCell'>";
         strTemp += "<p>"+arrItems[intID].price+"</p>";
-//        strTemp += "</div><!-- rTableCell -->";
-
-//          strTemp += "<div class='rTableCell'>";
         strTemp += "<p>"+arrItems[intID].happiness+"</p>";
+        strTemp += "<p>"+arrItems[intID].health+"</p>";
         strTemp += "</div><!-- rTableCell -->";
-
       strTemp += "</div><!-- rTableRow -->";
 
       strTemp += "</div><!-- rTable -->";
@@ -151,6 +146,25 @@ function singleClick(intID) {
 }
 function doubleClick(intID) {
 
-  alert(intID);
+  console.log("Value: " + document.getElementById("Zappa").value);
+  console.log("InnerHTML: " + document.getElementById("Zappa").innerHTML);
+
+
+var strTemp = document.getElementById("Zappa").innerHTML;
+    strTemp += "<div class='rTableRow'>";
+      strTemp += "<div class='rTableCell'>";
+      strTemp += "<p>"+arrItems[intID].description+"</p>";
+      strTemp += "<p>"+arrItems[intID].quantity+"</p>";
+      strTemp += "<p>"+arrItems[intID].price+"</p>";
+      strTemp += "<p>"+arrItems[intID].happiness+"</p>";
+      strTemp += "<p>"+arrItems[intID].health+"</p>";
+      strTemp += "</div><!-- rTableCell -->";
+    strTemp += "</div><!-- rTableRow -->";
+
+  populateElement("Zappa", strTemp); //Show Product details
+  //alert(intID);
+
+
+
 
 }

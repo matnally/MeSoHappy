@@ -2,7 +2,7 @@
 var arrSliders = new Array(); //Global Array to store all Products
     arrSliders = [{
                    "id": 1
-                   ,"name": "Slider 1"
+                   ,"name": "rangeSlider1"
                    ,"description": "This is Slider 1 info here"
                    ,"min": 0
                    ,"max": 100
@@ -12,7 +12,7 @@ var arrSliders = new Array(); //Global Array to store all Products
                    ,"health": 86
                   },{
                    "id": 2
-                   ,"name": "Slider 2"
+                   ,"name": "rangeSlider2"
                    ,"description": "This is Slider 2 info here"
                    ,"min": 0
                    ,"max": 100
@@ -22,7 +22,7 @@ var arrSliders = new Array(); //Global Array to store all Products
                    ,"health": 76
                   },{
                    "id": 3
-                   ,"name": "Slider 3"
+                   ,"name": "rangeSlider2"
                    ,"description": "This is Slider 3 info here"
                    ,"min": 0
                    ,"max": 100
@@ -56,18 +56,18 @@ function slidersJSONtoArray(arrArray) {
   //transform JSON to array
   var arrTemp = [];
   for (var prop in arrArray) {
-        var objSlidersInstance = Object.create(objSliders); //Create Object
-        objSlidersInstance.setValues(parseInt(arrArray[prop].id)
-                                    ,arrArray[prop].name
-                                    ,arrArray[prop].description
-                                    ,parseInt(arrArray[prop].min)
-                                    ,parseInt(arrArray[prop].max)
-                                    ,parseInt(arrArray[prop].step)
-                                    ,parseInt(arrArray[prop].value)
-                                    ,parseInt(arrArray[prop].happiness)
-                                    ,parseInt(arrArray[prop].health)
-                                  ); //Init
-        arrTemp.push(objSlidersInstance); //Write Object to Array
+    var objSlidersInstance = Object.create(objSliders); //Create Object
+    objSlidersInstance.setValues(parseInt(arrArray[prop].id)
+                                ,arrArray[prop].name
+                                ,arrArray[prop].description
+                                ,parseInt(arrArray[prop].min)
+                                ,parseInt(arrArray[prop].max)
+                                ,parseInt(arrArray[prop].step)
+                                ,parseInt(arrArray[prop].value)
+                                ,parseInt(arrArray[prop].happiness)
+                                ,parseInt(arrArray[prop].health)
+                              ); //Init
+    arrTemp.push(objSlidersInstance); //Write Object to Array
   } //for
 
   return arrTemp;
@@ -78,13 +78,11 @@ function setSlidersValues(arrArray) {
 
   var elems = document.getElementsByName("rangeSlider"); //get array of elements
   arrArray.forEach(function(obj, index) { //for every object in the arrArray
-
     //all valid properties of a range slider
     elems[index].min = obj["min"];
     elems[index].max = obj["max"];
     elems[index].step = obj["step"];
     elems[index].value = obj["value"];
-
   }); //forEach
 
   rangeSliderValuesDisplayUpdate(); //update displayed values

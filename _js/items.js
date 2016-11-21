@@ -27,7 +27,7 @@ var arrItems = new Array(); //Global Array to store all Products
                    ,"price": 2.70
                    ,"happiness": 111
                    ,"health": 5
-               }];
+               }]; //array
 
 
 /************* START INIT *************/
@@ -42,8 +42,8 @@ var objItems = new Object();
            this.price = intPrice;
            this.happiness = intHappiness;
            this.health = intHealth;
-       }
-    };
+       } //setValues
+    }; //objItems
 /************* END INIT *************/
 
 
@@ -61,7 +61,7 @@ function itemsJSONtoArray(arrArray) {
                                     ,arrArray[prop].price //Init
                                     ,arrArray[prop].happiness
                                     ,arrArray[prop].health
-                                  ); //Init
+                                  ); //setValues
     arrTemp.push(objItemsInstance); //Write Object to Array
   } //for
 
@@ -94,7 +94,7 @@ function createTableContent(arrArray) {
 
   var strTemp = "";
   for (var i=0; i<arrArray.length; i++) { //For loop to go through array
-    strTemp += "<div class='rTableRow' onClick='singleClick("+i+")' onDblClick='doubleClick("+i+")'>";
+    strTemp += "<div class='rTableRow' onClick='singleClick("+i+")' onDblClick='InventoryTableAdd("+i+")'>";
     Object.keys(arrArray[i]).forEach(function (key) {
       strTemp += "<div class='rTableCell"+checkIfHidden(key)+"'><label>"+arrArray[i][key]+"</label></div>";
     });
@@ -125,7 +125,7 @@ function singleClick(intID) {
 
   var strTemp = "<div class='rTable'>";
 
-      strTemp += "<div class='rTableHeading' style='width:100%'>";
+      strTemp += "<div class='rTableHeading'>";
       strTemp += "<p>"+arrItems[intID].name+"</p>";
       strTemp += "</div><!-- rTableHeading -->";
 
@@ -143,28 +143,4 @@ function singleClick(intID) {
 
   populateElement("elemItemDetailsContainer", strTemp); //Show Product details
 
-}
-function doubleClick(intID) {
-
-  console.log("Value: " + document.getElementById("Zappa").value);
-  console.log("InnerHTML: " + document.getElementById("Zappa").innerHTML);
-
-
-var strTemp = document.getElementById("Zappa").innerHTML;
-    strTemp += "<div class='rTableRow'>";
-      strTemp += "<div class='rTableCell'>";
-      strTemp += "<p>"+arrItems[intID].description+"</p>";
-      strTemp += "<p>"+arrItems[intID].quantity+"</p>";
-      strTemp += "<p>"+arrItems[intID].price+"</p>";
-      strTemp += "<p>"+arrItems[intID].happiness+"</p>";
-      strTemp += "<p>"+arrItems[intID].health+"</p>";
-      strTemp += "</div><!-- rTableCell -->";
-    strTemp += "</div><!-- rTableRow -->";
-
-  populateElement("Zappa", strTemp); //Show Product details
-  //alert(intID);
-
-
-
-
-}
+} //function

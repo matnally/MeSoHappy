@@ -30,7 +30,7 @@ var arrSliders = new Array(); //Global Array to store all Products
                    ,"value": 50
                    ,"happiness": 97
                    ,"health": 96
-                 }];
+                 }]; //arrSliders
 
 
 /************* START slider init *************/
@@ -47,8 +47,8 @@ var objSliders = new Object();
          this.value = intValue;
          this.happiness = intHappiness;
          this.health = intHealth;
-       }
-    };
+       } //setValues
+    }; //objSliders
 /************* END slider init *************/
 
 function slidersJSONtoArray(arrArray) {
@@ -87,7 +87,7 @@ function setSlidersValues(arrArray) {
 
   rangeSliderValuesDisplayUpdate(); //update displayed values
 
-}
+} //function
 
 function rangeSliderValuesChanged(elem) {
 

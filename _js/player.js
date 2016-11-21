@@ -2,27 +2,29 @@
 /************* START INIT *************/
 var objPlayer = new Object();
     objPlayer = { //Assign functions to object
-       setValues: function (strName, intDateStarted, intDateCurrent, intTimeWorked, intHealth, intHappiness, intMoney) { //Set Object Property values
+       setValues: function (strName, intDateStarted, intDateCurrent, arrDatesWorked, intDaysWorked, intHealth, intHappiness, intMoney) { //Set Object Property values
            this.name = strName;
            this.DateStarted = intDateStarted;
            this.DateCurrent = intDateCurrent;
-           this.TimeWorked = intTimeWorked;
+           this.DatesWorked = arrDatesWorked;
+           this.DaysWorked = intDaysWorked;
            this.Health = intHealth;
            this.Happiness = intHappiness;
            this.Money = intMoney;
-       }
-    };
+       } //setValues
+    }; //objPlayer
 
 
 var objPlayerInstance = Object.create(objPlayer); //Create Object
     objPlayerInstance.setValues("A name" //name
-                                ,new Date(2008, 10, 18) //DateStarted
-                                ,new Date(2008, 10, 18) //DateCurrent
-                                ,0 //TimeWorked
+                                ,new Date(2008, 10-1, 18) //DateStarted : -1 because dates start in 0 in JS
+                                ,new Date(2008, 10-1, 18) //DateCurrent : -1 because dates start in 0 in JS
+                                ,[] //DatesWorked
+                                ,0 //DaysWorked
                                 ,100 //Health
                                 ,100 //Happiness
                                 ,1000 //Money
-                              ); //Init
+                              ); //setValues
 /************* END INIT *************/
 
 
@@ -30,9 +32,10 @@ var objPlayerInstance = Object.create(objPlayer); //Create Object
 /****************** START Create Inventory HTML ******************/
 function createInventoryTable(arrArray) {
 
-  var strTemp = "<div id='Zappa' class='rTable'>";
+  var strTemp = "<div class='rTable'>";
       strTemp += createInventoryTableHeadings(arrArray);
 //      strTemp += createInventoryTableContent(arrArray);
+      strTemp += "<div id='divInventoryTable'></div>";
       strTemp += "</div>"; //rTable
   return strTemp;
 
@@ -65,5 +68,5 @@ function createInventoryTableContent(arrArray) {
   }// For
   return strTemp;
 
-}
+} //function
 /****************** START Create Inventory HTML ******************/

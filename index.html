@@ -22,6 +22,7 @@
   <script src="_js/player.js"></script>
   <script src="_js/sliders.js"></script>
   <script src="_js/items.js"></script>
+  <script src="_js/inventory.js"></script>
   <script src="_js/work.js"></script>
   <script src="_js/misc.js"></script>
   <script src="_js/start.js"></script>
@@ -154,7 +155,7 @@
             </div><!-- rTableCell -->
             <div class="rTableCell">
               <input id="workMonthCount" type="number" value="1" min="1" max="12">
-              <button type="button" onClick="workMonth(workMonthCount.value);">Add a month</button>
+              <button type="button" onClick="workMonth(workMonthCount.value);">Add</button>
             </div><!-- rTableCell -->
           </div><!-- rTableRow -->
         </div><!-- rTable -->
@@ -166,7 +167,11 @@
         <div class="rTable">
           <div class="rTableRow">
             <div class="rTableCell">
-              <label id="labDateWorked"></label>
+              <label id="labTotalDaysWorked"></label>
+              <br>
+              <label id="labTotalMonthsWorked"></label>
+              <br>
+              <label id="labTotalYearsWorked"></label>
             </div><!-- rTableCell -->
           </div><!-- rTableRow -->
         </div><!-- rTable -->

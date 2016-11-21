@@ -17,4 +17,4 @@ function initStart() {
 
   populateElement("elemInventoryContainer", createInventoryTable(itemsJSONtoArray(arrItems))); //create and display items table
 
-}
+} //function
